@@ -24,7 +24,7 @@ def faceDetection(frame):
     return frame, cropped_faces
 
 
-image = cv2.imread('/Users/rayanpicso/Desktop/MyProjects/Face recognition/MultipleFaces/iftar2022HIS.jpeg')
+image = cv2.imread('path/to/your/photo')
 result, faces = faceDetection(image)
 cv2.imshow('result', result)
 for i, face in enumerate(faces):
