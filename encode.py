@@ -8,15 +8,15 @@ cascPath = os.path.dirname(cv2.__file__) + "/data/haarcascade_frontalface_defaul
 faceCascade = cv2.CascadeClassifier(cascPath)
 
 cur_direc = os.getcwd()
-path = os.path.join(cur_direc, 'faces/')
-list_of_files = [f for f in glob.glob(path + '*.jpeg')]
+path = os.path.join(cur_direc, 'path/to/faces/folder')
+list_of_files = [f for f in glob.glob(path + '*.jpeg')] # enssure that all faces file have same extention
 number_files = len(list_of_files)
 names = list_of_files.copy()
 
 faces_encodings = []
 faces_names = []
 
-# Training:
+# Face encoding:
 for i in range(number_files):
     globals()['image_{}'.format(i)] = face_recognition.load_image_file(list_of_files[i])
     globals()['image_encoding_{}'.format(i)] = face_recognition.face_encodings(globals()['image_{}'.format(i)])[0]
